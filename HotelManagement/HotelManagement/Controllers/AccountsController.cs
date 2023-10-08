@@ -7,6 +7,8 @@ using System.Security;
 using HotelManagement.Models;
 using System.Web.Security;
 using Membership = HotelManagement.Models.Membership;
+using System.Security.Cryptography;
+using System.Text;
 
 namespace HotelManagement.Controllers
 {
@@ -22,9 +24,10 @@ namespace HotelManagement.Controllers
         {
             using (var context=new HotelManagementDBEntities ())
             {
-                bool isValidUser=context.Users.Any(x=>x.name == model1.UserName && x.password == model1.UserPassword);
-                if (isValidUser)
+                var ValidUser=context.Users.SingleOrDefault(x=>x.name == model1.UserName );
+                if (ValidUser!=null)
                 {
+                    if (VerifyPassword(model1.UserPassword,ValidUser.password))
                     FormsAuthentication.SetAuthCookie(model1.UserName, false);
                     return RedirectToAction("Index", "Users");
                 }
@@ -55,13 +58,31 @@ namespace HotelManagement.Controllers
             }
             using (var context=new HotelManagementDBEntities())
             {
+                model1.password = HashPassword(model1.password);
+
                 context.Users.Add(model1);
                 context.SaveChanges();
             }
             return RedirectToAction("Login");
             
         }
-      
+        private string HashPassword(string password)
+        {
+            // Use a secure hash function like bcrypt, Argon2, etc.
+            // For simplicity, let's use a simple hash here (not recommended for production)
+            using (SHA256 sha256 = SHA256.Create())
+            {
+                byte[] hashedBytes = sha256.ComputeHash(Encoding.UTF8.GetBytes(password));
+                return Convert.ToBase64String(hashedBytes);
+            }
+        }
+
+        private bool VerifyPassword(string enteredPassword, string hashedPassword)
+        {
+            // Compare the entered password with the hashed password
+            string hashedEnteredPassword = HashPassword(enteredPassword);
+            return string.Equals(hashedEnteredPassword, hashedPassword);
+        }
 
         public ActionResult StaffLogin()
         {
