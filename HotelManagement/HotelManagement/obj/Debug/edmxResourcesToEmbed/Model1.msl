@@ -1,0 +1,85 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="HotelManagementDBModelStoreContainer" CdmEntityContainer="HotelManagementDBEntities">
+    <EntitySetMapping Name="Amenities">
+      <EntityTypeMapping TypeName="HotelManagementDBModel.Amenity">
+        <MappingFragment StoreEntitySet="Amenities">
+          <ScalarProperty Name="amenityId" ColumnName="amenityId" />
+          <ScalarProperty Name="roomTypeId" ColumnName="roomTypeId" />
+          <ScalarProperty Name="amenityName" ColumnName="amenityName" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PaymentDetails">
+      <EntityTypeMapping TypeName="HotelManagementDBModel.PaymentDetail">
+        <MappingFragment StoreEntitySet="PaymentDetails">
+          <ScalarProperty Name="paymentId" ColumnName="paymentId" />
+          <ScalarProperty Name="userId" ColumnName="userId" />
+          <ScalarProperty Name="cardType" ColumnName="cardType" />
+          <ScalarProperty Name="cardNumber" ColumnName="cardNumber" />
+          <ScalarProperty Name="expirationDate" ColumnName="expirationDate" />
+          <ScalarProperty Name="mvcNumber" ColumnName="mvcNumber" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Reservations">
+      <EntityTypeMapping TypeName="HotelManagementDBModel.Reservation">
+        <MappingFragment StoreEntitySet="Reservations">
+          <ScalarProperty Name="reservationId" ColumnName="reservationId" />
+          <ScalarProperty Name="userId" ColumnName="userId" />
+          <ScalarProperty Name="startDateTime" ColumnName="startDateTime" />
+          <ScalarProperty Name="endDateTime" ColumnName="endDateTime" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Rooms">
+      <EntityTypeMapping TypeName="HotelManagementDBModel.Room">
+        <MappingFragment StoreEntitySet="Rooms">
+          <ScalarProperty Name="roomId" ColumnName="roomId" />
+          <ScalarProperty Name="roomTypeId" ColumnName="roomTypeId" />
+          <ScalarProperty Name="roomNumber" ColumnName="roomNumber" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="RoomTypes">
+      <EntityTypeMapping TypeName="HotelManagementDBModel.RoomType">
+        <MappingFragment StoreEntitySet="RoomTypes">
+          <ScalarProperty Name="roomTypeId" ColumnName="roomTypeId" />
+          <ScalarProperty Name="maxNumOfAdults" ColumnName="maxNumOfAdults" />
+          <ScalarProperty Name="maxNumOfChildren" ColumnName="maxNumOfChildren" />
+          <ScalarProperty Name="description" ColumnName="description" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Staffs">
+      <EntityTypeMapping TypeName="HotelManagementDBModel.Staff">
+        <MappingFragment StoreEntitySet="Staffs">
+          <ScalarProperty Name="staffId" ColumnName="staffId" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="email" ColumnName="email" />
+          <ScalarProperty Name="password" ColumnName="password" />
+          <ScalarProperty Name="phoneNumber" ColumnName="phoneNumber" />
+          <ScalarProperty Name="isManager" ColumnName="isManager" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Users">
+      <EntityTypeMapping TypeName="HotelManagementDBModel.User">
+        <MappingFragment StoreEntitySet="Users">
+          <ScalarProperty Name="userId" ColumnName="userId" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="emailAddress" ColumnName="emailAddress" />
+          <ScalarProperty Name="password" ColumnName="password" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <AssociationSetMapping Name="ReservationRoomJoin" TypeName="HotelManagementDBModel.ReservationRoomJoin" StoreEntitySet="ReservationRoomJoin">
+      <EndProperty Name="Reservations">
+        <ScalarProperty Name="reservationId" ColumnName="reservationId" />
+      </EndProperty>
+      <EndProperty Name="Rooms">
+        <ScalarProperty Name="roomId" ColumnName="roomId" />
+      </EndProperty>
+    </AssociationSetMapping>
+  </EntityContainerMapping>
+</Mapping>
