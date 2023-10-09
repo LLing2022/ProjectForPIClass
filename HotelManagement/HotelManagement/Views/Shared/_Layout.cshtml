@@ -3,13 +3,14 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>@ViewBag.Title - My ASP.NET Application</title>
+    <title>@ViewBag.Title - Welcome To PI Hotel</title>
     <link href="~/Content/Site.css" rel="stylesheet" type="text/css" />
+    <link href="~/Content/loginStyle.css" rel="stylesheet" type="text/css" />
     <link href="~/Content/bootstrap.min.css" rel="stylesheet" type="text/css" />
     <script src="~/Scripts/modernizr-2.8.3.js"></script>
 </head>
 <body>
-    <div class="navbar navbar-inverse navbar-fixed-top">
+    @*<div class="navbar navbar-inverse navbar-fixed-top">
         <div class="container">
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
@@ -24,13 +25,48 @@
                 </ul>
             </div>
         </div>
-    </div>
+    </div>*@
+    <style>
+        .body-content {
+            background-image: url('../../Content/imgs/background-with-shadow-tree.jpg'); background-size: cover; /* Cover the entire container */
+            background-position: center; /* Center the background image */
+            background-repeat: no-repeat;
+            /* background-color: #cae8ce;*/
+            color: #43587a; /* Text color for contrast */
+            padding: 20px; /* Add padding for spacing */
+            border-radius: 10px; /* Rounded corners for a nicer look */
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3); /* Add a shadow for depth */
+            margin: 0 auto; /* Center the container horizontally */
+            /* max-width: 400px;*/ /* Limit the container width */
+            margin-top: 50px;
+            /*margin-bottom: 250px;*/
+            justify-content: center;
+        }
+        .table {
+            border-collapse: collapse; /* Collapse borders to remove spacing between cells */
+            width: 100%; /* Make the table fill its container */
+        }
+            .table th {
+                background-color: #c6dbf5; /* Header background color */
+                text-align: center; /* Center-align text in header cells */
+                border: 1px solid #436e50; /* Single border for all sides */
+                padding: 8px; /* Add padding for better spacing */
+            }
+            .table td {
+                text-align: center; /* Center-align text in data cells */
+                border: 2px solid #436e50; /* Blue border for all sides */
+                border-bottom: 2px double #436e50; /* Double bottom border in blue */
+                padding: 8px; /* Add padding for better spacing */
+            }
+
+       
+    </style>
 
     <div class="container body-content">
         @RenderBody()
         <hr />
         <footer>
-            <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
+            <p>&copy; @DateTime.Now.Year - PI Hotel :)</p>
         </footer>
     </div>
 

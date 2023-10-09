@@ -1,0 +1,38 @@
+﻿.login-container {
+    background-image: url('imgs/background-with-shadow-tree.jpg'); 
+    background-size: cover; /* Cover the entire container */
+    background-position: center; /* Center the background image */
+    background-repeat: no-repeat;
+
+   /* background-color: #cae8ce;*/
+    color: #43587a; /* Text color for contrast */
+    padding: 20px; /* Add padding for spacing */
+    border-radius: 10px; /* Rounded corners for a nicer look */
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3); /* Add a shadow for depth */
+    margin: 0 auto; /* Center the container horizontally */
+    max-width: 400px; /* Limit the container width */
+    margin-top: 50px;
+    /*margin-bottom: 250px;*/
+    justify-content: center;
+}
+
+.form-group {
+    margin-bottom: 20px; /* Adjust the margin to control spacing */
+}
+
+.form-group .btn-default {
+        background-color: #9cc2ff; /* Grey background color */
+        color: #fff; /* Text color for contrast */
+        display: block; /* Make the button a block-level element */
+        width: 50%; /* Make the button 100% width */
+        padding: 10px; /* Add padding for spacing */
+        border: none; /* Remove the button border */
+        border-radius: 5px; /* Rounded corners for the button */
+        text-align: center; /* Center text within the button */
+        cursor: pointer;
+        transition: background-color 0.3s;
+    }
+
+    .btn-default :hover {
+        background-color: #ff5733;
+    }

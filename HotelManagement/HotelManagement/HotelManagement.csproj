@@ -97,6 +97,10 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\imgs\background-with-shadow-tree.jpg" />
+    <Content Include="Content\imgs\sandy-coast-beautiful-sea-with-clear-blue-sky-sunlight.jpg" />
+    <Content Include="Content\login_Staff_Style .css" />
+    <Content Include="Content\loginStyle.css" />
     <Content Include="Content\Site.css" />
     <Content Include="Global.asax" />
     <Content Include="Model1.Context.tt">

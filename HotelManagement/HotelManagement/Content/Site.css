@@ -1,18 +1,22 @@
 ﻿body {
     padding-top: 50px;
     padding-bottom: 20px;
+    background-image: url('imgs/sandy-coast-beautiful-sea-with-clear-blue-sky-sunlight.jpg'); /* Replace 'your-background-image.jpg' with the actual image path or URL */
+    background-size: cover; /* Cover the entire viewport */
+    background-position: center; /* Center the background image */
+    background-repeat: no-repeat; /* Prevent the image from repeating */
 }
 
 /* Set padding to keep content from hitting the edges */
 .body-content {
-    padding-left: 15px;
-    padding-right: 15px;
+    padding-left: 0;
+    padding-right: 0;
 }
 
 /* Set width on the form input elements since they're 100% wide by default */
 input,
 select,
 textarea {
-    max-width: 280px;
+    max-width: none;
 }
 

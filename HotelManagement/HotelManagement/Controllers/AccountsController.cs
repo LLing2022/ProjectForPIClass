@@ -44,7 +44,13 @@ namespace HotelManagement.Controllers
         [HttpPost]
         public ActionResult Signup(User model1)
         {
-          
+
+            if (string.IsNullOrWhiteSpace(model1.name) || string.IsNullOrWhiteSpace(model1.emailAddress) || string.IsNullOrWhiteSpace(model1.password))
+            {
+                ModelState.AddModelError("", "Username,Email , Password cannot be empty.");
+                return View();
+            }
+
             if (!IsPasswordValid(model1.password))
             {
                 ModelState.AddModelError("", "Password needs to be at least 8 characters long and include at least one special character");
@@ -91,12 +97,18 @@ namespace HotelManagement.Controllers
         [HttpPost]
         public ActionResult StaffLogin(Staff model1)
         {
+
+            if (string.IsNullOrWhiteSpace(model1.email) || string.IsNullOrWhiteSpace(model1.password))
+            {
+                ModelState.AddModelError("", "Email and password cannot be empty.");
+                return View();
+            }
             if (!IsValidEmail(model1.email))
             {
                 ModelState.AddModelError("", "Invalid email format. Please enter a valid email adress");
                 return View();
             }
-           
+
             using (var context = new HotelManagementDBEntities())
             {
                 var user = context.Staffs.SingleOrDefault(s => s.email == model1.email);
