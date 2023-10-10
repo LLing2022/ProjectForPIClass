@@ -116,6 +116,49 @@ namespace HotelManagement.Controllers
             return RedirectToAction("Index");
         }
 
+        public ActionResult ManageReservations()
+        {
+            return View(db.Reservations.ToList());
+        }
+
+        public ActionResult ModifyReservation(int? id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            Reservation reservation = db.Reservations.Find(id);
+            if (reservation == null)
+            {
+                return HttpNotFound();
+            }
+            return View(reservation);
+        }
+
+        public ActionResult CancelReservation(int? id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            Reservation reservation = db.Reservations.Find(id);
+            if (reservation == null)
+            {
+                return HttpNotFound();
+            }
+            return View(reservation);
+        }
+
+        [HttpPost, ActionName("Cancel")]
+        [ValidateAntiForgeryToken]
+        public ActionResult CancelReservatinConfirmed(int id)
+        {
+            Reservation reservation = db.Reservations.Find(id);
+            db.Reservations.Remove(reservation);
+            db.SaveChanges();
+            return RedirectToAction("ModifyReservations");
+        }
+
         protected override void Dispose(bool disposing)
         {
             if (disposing)

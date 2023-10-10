@@ -28,8 +28,8 @@ namespace HotelManagement.Controllers
                 if (ValidUser!=null)
                 {
                     if (VerifyPassword(model1.UserPassword,ValidUser.password))
-                    FormsAuthentication.SetAuthCookie(model1.UserName, false);
-                    return RedirectToAction("Index", "Users");
+                        FormsAuthentication.SetAuthCookie(model1.UserName, false);
+                    return RedirectToAction("Index", "Rooms");
                 }
                
                 ModelState.AddModelError("", "Invaild username and password");

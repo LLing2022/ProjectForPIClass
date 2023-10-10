@@ -121,6 +121,7 @@
     </Compile>
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\AccountsController.cs" />
+    <Compile Include="Controllers\RoomsController.cs" />
     <Compile Include="Controllers\StaffsController.cs" />
     <Compile Include="Controllers\UsersController.cs" />
     <Compile Include="Global.asax.cs">
@@ -188,6 +189,13 @@
     <Content Include="Views\Accounts\Login.cshtml" />
     <Content Include="Views\Accounts\Signup.cshtml" />
     <Content Include="Views\Accounts\StaffLogin.cshtml" />
+    <Content Include="Views\Rooms\Index.cshtml" />
+    <Content Include="Views\Staffs\ManageReservations.cshtml" />
+    <Content Include="Views\Staffs\CancelReservation.cshtml" />
+    <Content Include="Views\Rooms\Book.cshtml" />
+    <Content Include="Views\Rooms\ModifyReservation.cshtml" />
+    <Content Include="Views\Rooms\CancelReservation.cshtml" />
+    <Content Include="Views\Staffs\ModifyReservation.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

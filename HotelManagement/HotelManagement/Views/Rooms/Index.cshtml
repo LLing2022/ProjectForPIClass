@@ -1,0 +1,56 @@
+﻿@model IEnumerable<HotelManagement.RoomType>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+
+<h2>Rooms Index</h2>
+
+<p>Welcome, @HttpContext.Current.User.Identity.Name!</p>
+
+@using (HotelManagementDBEntities db = new HotelManagementDBEntities())
+{
+    if (db.Reservations.Where(reservation => reservation.userId == db.Users.Where(user => user.name.Equals(HttpContext.Current.User.Identity.Name)).Select(user => user.userId).FirstOrDefault()).Any())
+    {
+        <p>@Html.ActionLink("Modify Reservation", "ModifyReservation", new { id = db.Users.Where(user => user.name.Equals(HttpContext.Current.User.Identity.Name)).Select(user => user.userId).FirstOrDefault() })</p>
+        <p>@Html.ActionLink("Cancel Reservation", "CancelReservation", new { id = db.Users.Where(user => user.name.Equals(HttpContext.Current.User.Identity.Name)).Select(user => user.userId).FirstOrDefault() })</p>
+    }
+    else
+    {
+        <table class="table">
+            <tr>
+                <th>
+                    Room Type
+                </th>
+                <th>
+                    Maximum Number of Adults
+                </th>
+                <th>
+                    Maximum Number of Children
+                </th>
+                <th>
+                    Amenities
+                </th>
+            </tr>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.ActionLink(item.description, "Book", new { roomTypeId = item.roomTypeId })
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.maxNumOfAdults)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.maxNumOfChildren)
+                    </td>
+                    <td>
+                        @String.Join(", ", item.Amenities.Select(amenity => amenity.amenityName).ToList())
+                    </td>
+                </tr>
+            }
+
+        </table>
+    }
+}
