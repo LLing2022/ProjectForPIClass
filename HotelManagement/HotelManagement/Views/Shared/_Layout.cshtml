@@ -10,25 +10,38 @@
     <script src="~/Scripts/modernizr-2.8.3.js"></script>
 </head>
 <body>
+    <div class="navbar">
+        <nav>
+            <ul>
+                <li>@Html.ActionLink("Home", "Index","Home")</li>
+                @*<li>@Html.ActionLink("About", "About", "Home")</li>*@
+                <li>@Html.ActionLink("MyOrder", "MyAccount", "MyAccount")</li>
+                <li>@Html.ActionLink("Login", "Login", "Login")</li>
+                <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
+                <!-- Add more navigation links as needed -->
+            </ul>
+        </nav>
+    </div>
     @*<div class="navbar navbar-inverse navbar-fixed-top">
-        <div class="container">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                @Html.ActionLink("Application name", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+            <div class="container">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    @Html.ActionLink("Application name", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+                </div>
+                <div class="navbar-collapse collapse">
+                    <ul class="nav navbar-nav">
+                    </ul>
+                </div>
             </div>
-            <div class="navbar-collapse collapse">
-                <ul class="nav navbar-nav">
-                </ul>
-            </div>
-        </div>
-    </div>*@
+        </div>*@
     <style>
         .body-content {
-            background-image: url('../../Content/imgs/background-with-shadow-tree.jpg'); background-size: cover; /* Cover the entire container */
+            background-image: url('../../Content/imgs/background-with-shadow-tree.jpg');
+            background-size: cover; /* Cover the entire container */
             background-position: center; /* Center the background image */
             background-repeat: no-repeat;
             /* background-color: #cae8ce;*/
@@ -42,25 +55,48 @@
             /*margin-bottom: 250px;*/
             justify-content: center;
         }
-        
+
         .table {
             border-collapse: collapse; /* Collapse borders to remove spacing between cells */
             width: 100%; /* Make the table fill its container */
         }
+
             .table th {
                 background-color: #c6dbf5; /* Header background color */
                 text-align: center; /* Center-align text in header cells */
                 border: 1px solid #436e50; /* Single border for all sides */
                 padding: 8px; /* Add padding for better spacing */
             }
+
             .table td {
                 text-align: center; /* Center-align text in data cells */
                 border: 2px solid #436e50; /* Blue border for all sides */
                 border-bottom: 2px double #436e50; /* Double bottom border in blue */
                 padding: 8px; /* Add padding for better spacing */
             }
+        .navbar {
+            text-align: right; /* Align links to the right */
+            background-color: transparent; /* Background color for the navbar */
+            padding: 5px; /* Add padding for spacing */
+            font-size: 18px;
+        }
+        .navbar ul {
+            list-style-type: none; /* Remove list bullets */
+            margin: 0;
+            padding: 0;
+        }
 
-       
+            .navbar ul li {
+                display: inline; /* Display links in one line */
+                margin-right: 20px; /* Add spacing between links */
+            }
+
+                .navbar ul li a {
+                    text-decoration: none; /* Remove underlines from links */
+                    color: #584e87; /* Link text color */
+                    font-weight: bold; /* Make links bold */
+                }
+            
     </style>
 
     <div class="container body-content">
